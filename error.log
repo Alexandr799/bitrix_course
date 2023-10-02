@@ -1,0 +1,7 @@
+[Sun Sep 17 22:56:20.244125 2023] [php:error] [pid 15776] [client 127.0.0.1:42010] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /home/alex/my-project/bitrix_course/test.php on line 5
+[Sun Sep 17 22:56:29.047801 2023] [php:error] [pid 4277] [client 127.0.0.1:50530] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /home/alex/my-project/bitrix_course/test.php on line 5
+[Mon Sep 18 01:37:16.581282 2023] [php:notice] [pid 20795] [client 127.0.0.1:48972] SMTP Error: Could not connect to SMTP host., referer: http://localhost:4400/work/feedback.html
+[Mon Sep 18 01:41:58.072048 2023] [php:notice] [pid 20686] [client 127.0.0.1:43218] SMTP Error: Could not connect to SMTP host., referer: http://localhost:4400/work/feedback.html
+[Mon Sep 18 01:52:35.379587 2023] [php:notice] [pid 20619] [client 127.0.0.1:49576] SMTP Error: Could not connect to SMTP host., referer: http://localhost:4400/work/feedback.html
+[Mon Sep 18 02:07:09.134039 2023] [php:notice] [pid 20620] [client 127.0.0.1:39566] SMTP Error: Could not connect to SMTP host., referer: http://localhost:4400/work/feedback.html
+[Mon Oct 02 12:25:17.174700 2023] [php:error] [pid 17459] [client 127.0.0.1:35060] PHP Fatal error:  Cannot use empty array elements in arrays in /home/alex/my-project/bitrix_course/zadanie-4-1/.test.menu.php on line 11, referer: http://localhost:4400/zadanie-4-1/?bitrix_include_areas=Y&clear_cache=Y

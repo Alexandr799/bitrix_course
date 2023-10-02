@@ -1,0 +1,39 @@
+<?
+$aMenuLinks = Array(
+    Array(
+		GetMessage('ABOUT_MENU'),
+		"/about/",
+		Array(),
+		Array(),
+		""
+	),
+    Array(
+		GetMessage('FEEDBACK_MENU'),
+		"/feedback/",
+		Array(),
+		Array(),
+		""
+	),
+    Array(
+		GetMessage('CONTACTS_MENU'),
+		"/contacts/",
+		Array(),
+		Array(),
+		""
+	),
+    Array(
+		GetMessage('GUIDE_MENU'),
+		"/gide/",
+		Array(),
+		Array(),
+		""
+	),
+    Array(
+		GetMessage('HISTORY'),
+		"/history/",
+		Array(),
+		Array(),
+		""
+	),
+);
+
