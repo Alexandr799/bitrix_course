@@ -11,7 +11,7 @@ $aMenuLinks = Array(
 
     Array(
 		"Тестовый подраздел",
-		"/test/test/",
+		"/test/two/",
 		Array(),
 		""
 	),
