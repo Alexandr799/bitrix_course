@@ -4,4 +4,5 @@
 .idea
 /local/php_interface/vendor
 error.log
-access.log
+error.log
+local/php_interface/.env
