@@ -38,22 +38,16 @@
     <tbody>
         <tr>
             <td>
-                <?php
-                $curTail = explode('/', $APPLICATION->GetCurPage())[1];
-                if ($curTail === 'partneram') {
-                    $APPLICATION->IncludeFile(
-                        $APPLICATION->GetTemplatePath("include_areas/partners.php"),
-                        array(),
-                        array("MODE" => "html")
-                    );
-                } else {
-                    $APPLICATION->IncludeFile(
-                        $APPLICATION->GetTemplatePath("include_areas/green.php"),
-                        array(),
-                        array("MODE" => "html")
-                    );
-                }
-                ?>
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    "",
+                    array(
+                        "AREA_FILE_RECURSIVE" => "Y",
+                        "AREA_FILE_SHOW" => "sect",
+                        "AREA_FILE_SUFFIX" => "inc",
+                        "EDIT_TEMPLATE" => ""
+                    )
+                ); ?>
 
                 <div style="padding:20px 20px;">
                     <a href="tel:<?php $APPLICATION->IncludeFile(
