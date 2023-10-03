@@ -111,4 +111,5 @@
                  * @var CMain $APPLICATION;
                  */
                 $APPLICATION->ShowViewContent('date_news');
+                $APPLICATION->ShowViewContent('count_news');
                 ?>

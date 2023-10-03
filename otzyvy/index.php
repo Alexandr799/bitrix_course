@@ -130,7 +130,7 @@ $APPLICATION->SetTitle("Отзывы");
 <h2>Просто список отзывов</h2>
  <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"news_list_default",
+	"news_list_default_with_count",
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
