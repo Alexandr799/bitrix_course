@@ -1,5 +1,5 @@
-bitrix
-upload
+/bitrix
+/upload
 .vscode
 .idea
 /local/php_interface/vendor

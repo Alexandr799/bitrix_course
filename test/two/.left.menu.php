@@ -3,7 +3,7 @@ $aMenuLinks = Array(
 
 	Array(
 		"Главная подраздела",
-		"/test/test/",
+		"/test/one/",
 		Array(),
 		Array(),
 		""
