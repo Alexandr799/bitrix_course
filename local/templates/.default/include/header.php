@@ -19,17 +19,18 @@
 </div>
 <? $APPLICATION->IncludeComponent(
     "bitrix:menu",
-    "horizontal_multilevel",
+    "horizontal_multilevel_default_top",
     array(
-        "ROOT_MENU_TYPE" => "top",
-        "MAX_LEVEL" => "3",
-        "CHILD_MENU_TYPE" => "left",
-        "USE_EXT" => "Y",
-        "MENU_CACHE_TYPE" => "A",
-        "MENU_CACHE_TIME" => "3600",
-        "MENU_CACHE_USE_GROUPS" => "Y",
-        "MENU_CACHE_GET_VARS" => array()
-    )
+        "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
+        "MAX_LEVEL" => "3",    // Уровень вложенности меню
+        "CHILD_MENU_TYPE" => "left",    // Тип меню для остальных уровней
+        "USE_EXT" => "Y",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+        "MENU_CACHE_TYPE" => "A",    // Тип кеширования
+        "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
+        "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
+        "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса
+    ),
+    false
 ); ?>
 <div id="zebra"></div>
 
@@ -68,24 +69,23 @@
                     </a>
                 </div>
                 <?php $APPLICATION->IncludeComponent(
-	"bitrix:menu",
-	"vertical_multilevel",
-	array(
-		"ROOT_MENU_TYPE" => "left",
-		"MAX_LEVEL" => "2",
-		"CHILD_MENU_TYPE" => "left",
-		"USE_EXT" => "Y",
-		"MENU_CACHE_TYPE" => "N",
-		"MENU_CACHE_TIME" => "3600",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"MENU_CACHE_GET_VARS" => array(
-		),
-		"COMPONENT_TEMPLATE" => "vertical_multilevel",
-		"DELAY" => "N",
-		"ALLOW_MULTI_SELECT" => "N"
-	),
-	false
-);
+                    "bitrix:menu",
+                    "vertical_multilevel",
+                    array(
+                        "ROOT_MENU_TYPE" => "left",
+                        "MAX_LEVEL" => "2",
+                        "CHILD_MENU_TYPE" => "left",
+                        "USE_EXT" => "Y",
+                        "MENU_CACHE_TYPE" => "N",
+                        "MENU_CACHE_TIME" => "3600",
+                        "MENU_CACHE_USE_GROUPS" => "Y",
+                        "MENU_CACHE_GET_VARS" => array(),
+                        "COMPONENT_TEMPLATE" => "vertical_multilevel",
+                        "DELAY" => "N",
+                        "ALLOW_MULTI_SELECT" => "N"
+                    ),
+                    false
+                );
                 $APPLICATION->IncludeComponent(
                     "bitrix:system.auth.form",
                     "auth_default_custom_template",

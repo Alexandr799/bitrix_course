@@ -6,8 +6,6 @@ if (is_string($_REQUEST["backurl"]) && strpos($_REQUEST["backurl"], "/") === 0) 
     LocalRedirect($_REQUEST["backurl"]);
 }
 
-var_dump($_REQUEST["backurl"]);
-
 $APPLICATION->SetTitle("Авторизация");
 ?>
 <p>Вы зарегистрированы и успешно авторизовались.</p>

@@ -3,3 +3,4 @@
 .vscode
 .idea
 /local/php_interface/vendor
+*.log

@@ -1,35 +1,28 @@
 <?
 $aMenuLinks = Array(
     Array(
-		GetMessage('ABOUT_MENU'),
-		"/about/",
-		Array(),
-		Array(),
-		""
-	),
-    Array(
-		GetMessage('FEEDBACK_MENU'),
+		'Обратная связь',
 		"/feedback/",
 		Array(),
 		Array(),
 		""
 	),
     Array(
-		GetMessage('CONTACTS_MENU'),
+		'Контакты',
 		"/contacts/",
 		Array(),
 		Array(),
 		""
 	),
     Array(
-		GetMessage('GUIDE_MENU'),
+		'Руководство',
 		"/gide/",
 		Array(),
 		Array(),
 		""
 	),
     Array(
-		GetMessage('HISTORY'),
+		'История',
 		"/history/",
 		Array(),
 		Array(),
