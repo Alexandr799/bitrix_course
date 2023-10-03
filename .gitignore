@@ -3,6 +3,5 @@
 .vscode
 .idea
 /local/php_interface/vendor
-error.log
-error.log
+*.log
 local/php_interface/.env
