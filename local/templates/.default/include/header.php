@@ -106,4 +106,9 @@
                         )
                     ); ?> </div>
                 <h1 id="pagetitle"><? $APPLICATION->ShowTitle(false) ?></h1>
-                <?php test_dump('asdasd', 'asdasd', 'asdasd');  ?>
+                <?php
+                /**
+                 * @var CMain $APPLICATION;
+                 */
+                $APPLICATION->ShowViewContent('date_news');
+                ?>
