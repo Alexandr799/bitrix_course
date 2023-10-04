@@ -55,6 +55,13 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),
+	Array(
+		"Новый раздел", 
+		"/novyy-razdel/", 
+		Array(), 
+		Array(), 
+		"" 
 	)
 );
 ?>

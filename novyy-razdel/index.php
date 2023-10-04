@@ -1,17 +1,11 @@
 <?
-require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetTitle("Продукты");
-?><div>
-	 <?
-
-?> <br>
-</div>
-<div>
-	 <?$APPLICATION->IncludeComponent(
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("Новый раздел");
+?><?$APPLICATION->IncludeComponent(
 	"bitrix:news",
-	"news_deafult",
+	"",
 	Array(
-		"ADD_ELEMENT_CHAIN" => "Y",
+		"ADD_ELEMENT_CHAIN" => "N",
 		"ADD_SECTIONS_CHAIN" => "Y",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
@@ -39,9 +33,8 @@ $APPLICATION->SetTitle("Продукты");
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FILE_404" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "6",
+		"IBLOCK_ID" => "5",
 		"IBLOCK_TYPE" => "rest_entity",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
@@ -50,7 +43,7 @@ $APPLICATION->SetTitle("Продукты");
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
 		"META_KEYWORDS" => "-",
-		"NEWS_COUNT" => "20",
+		"NEWS_COUNT" => "4",
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -59,13 +52,13 @@ $APPLICATION->SetTitle("Продукты");
 		"PAGER_TEMPLATE" => ".default",
 		"PAGER_TITLE" => "Новости",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"SEF_FOLDER" => "/products/",
+		"SEF_FOLDER" => "/novyy-razdel/",
 		"SEF_MODE" => "Y",
-		"SEF_URL_TEMPLATES" => Array("detail"=>"#SECTION_ID#/#ELEMENT_ID#/","news"=>"","section"=>"#SECTION_ID#/"),
+		"SEF_URL_TEMPLATES" => Array("detail"=>"#ELEMENT_ID#/","news"=>"","search"=>"search/","section"=>""),
 		"SET_LAST_MODIFIED" => "N",
-		"SET_STATUS_404" => "Y",
+		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "Y",
-		"SHOW_404" => "Y",
+		"SHOW_404" => "N",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
@@ -77,8 +70,7 @@ $APPLICATION->SetTitle("Продукты");
 		"USE_RATING" => "N",
 		"USE_REVIEW" => "N",
 		"USE_RSS" => "N",
-		"USE_SEARCH" => "N",
+		"USE_SEARCH" => "Y",
 		"USE_SHARE" => "N"
 	)
-);?>
-</div><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
