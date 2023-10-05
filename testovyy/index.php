@@ -12,12 +12,10 @@ $APPLICATION->SetTitle("Тестовый");
 		"IBLOCK_ID" => "8",
 		"IBLOCK_TYPE" => "rest_entity",
 		"NEWS_COUNT" => "1",
-		"SEF_FOLDER" => "/testovyy/",
-		"SEF_MODE" => "Y",
-		"SEF_URL_TEMPLATES" => Array("rezume"=>"#ELEMENT_ID#/form/","vacancies"=>"","vacancy"=>"#ELEMENT_ID#/"),
+		"SEF_MODE" => "N",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_ORDER1" => "DESC",
+		"VARIABLE_ALIASES" => Array("ELEMENT_ID"=>"ID","FORM_ID"=>"FORM_ID"),
 		"WEB_FORM_ID" => ""
 	)
-);?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

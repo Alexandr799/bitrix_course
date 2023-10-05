@@ -80,10 +80,12 @@ if ($arParams['SEF_MODE'] == 'Y') {
         $componentPage = 'rezume';
     } else if (intval($arVariables['ELEMENT_ID']) > 0) {
         $componentPage = 'vacancy';
+        $detailUrl = $_SERVER["REQUEST_URI"] . '&FORM_ID';
     } else {
         $componentPage = 'vacancies';
     }
 }
+
 $arResult = [
     'FOLDER'        => $SEF_FOLDER,
     'URL_TEMPLATES' => $arUrlTemplates,

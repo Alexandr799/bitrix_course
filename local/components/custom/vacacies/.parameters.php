@@ -91,12 +91,6 @@ $arComponentParameters = [
             "REFRESH" => "Y",
             "ADDITIONAL_VALUES" => "Y",
         ],
-        "WEB_FORM_ID" => [
-            "PARENT" => "BASE",
-            "NAME" => 'ID веб формы',
-            "TYPE" => "STRING",
-            "VALUES" => $arIBlock,
-        ],
         "NEWS_COUNT" => [
             "PARENT" => "BASE",
             "NAME" => "Колитчество вакансий на странице",

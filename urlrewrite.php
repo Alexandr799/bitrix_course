@@ -32,14 +32,6 @@ $arUrlRewrite=array (
     'PATH' => '/vakansii/index.php',
     'SORT' => 100,
   ),
-  6 => 
-  array (
-    'CONDITION' => '#^/testovyy/#',
-    'RULE' => '',
-    'ID' => 'custom:vacacies',
-    'PATH' => '/testovyy/index.php',
-    'SORT' => 100,
-  ),
   1 => 
   array (
     'CONDITION' => '#^/rest/#',
