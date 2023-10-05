@@ -28,7 +28,10 @@ $this->setFrameMode(true);
     $this->SetViewTarget('count_news');
     ?>
     <div>
-        Количетсво новостей на странице в шаблоне news_list_default_with_count списке: <?= $arResult['COUNT_DATA'] ?>
+        Количетсво черных продуктов <?php echo $arResult['PRODUCT']['black'] ?>
+    </div>
+    <div>
+        Количетсво белых продуктов <?php echo $arResult['PRODUCT']['white'] ?>
     </div>
     <?php
     $this->EndViewTarget();
