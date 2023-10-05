@@ -19,4 +19,5 @@ $APPLICATION->SetTitle("Тестовый");
 		"SORT_ORDER1" => "DESC",
 		"WEB_FORM_ID" => ""
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

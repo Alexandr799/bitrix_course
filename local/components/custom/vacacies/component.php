@@ -50,7 +50,17 @@ if ($arParams['SEF_MODE'] == 'Y') {
         $arVariables
     );
     $SEF_FOLDER = $arParams['SEF_FOLDER'];
-    $detailUrl = $SEF_FOLDER . ($componentPage === 'vacancies' ? $arUrlTemplates['vacancy'] : $arUrlTemplates[$componentPage]);
+    switch ($componentPage) {
+        case 'vacancies':
+            $detailUrl = $SEF_FOLDER . $arUrlTemplates['vacancy'];
+            break;
+        case 'vacancy':
+            $detailUrl = $SEF_FOLDER . $arUrlTemplates['rezume'];
+            break;
+        case 'rezume':
+            $detailUrl = $SEF_FOLDER . $arUrlTemplates['rezume'];
+            break;
+    }
 } else {
     $arVariables = [];
     $arVariableAliases = CComponentEngine::MakeComponentVariableAliases(
@@ -81,7 +91,5 @@ $arResult = [
     'ALIASES'       => $arVariableAliases,
     "DETAIL_URL" => $detailUrl ?? ''
 ];
-
-dump($arResult);
 
 $this->IncludeComponentTemplate($componentPage);

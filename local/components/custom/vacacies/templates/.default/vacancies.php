@@ -17,7 +17,6 @@ $APPLICATION->IncludeComponent(
         "IBLOCK_ID" => $arParams["IBLOCK_ID"],
         "NEWS_COUNT" => $arParams["NEWS_COUNT"],
         "SORT_BY1" => $arParams["SORT_BY1"],
-        "SORT_BY2" => "SORT",
         "SORT_ORDER1" => $arParas["SORT_ORDER1"],
     ],
     $component

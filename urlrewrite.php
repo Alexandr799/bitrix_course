@@ -24,7 +24,15 @@ $arUrlRewrite=array (
     'PATH' => '/products/index.php',
     'SORT' => 100,
   ),
-  4 => 
+  5 => 
+  array (
+    'CONDITION' => '#^/vakansii/#',
+    'RULE' => '',
+    'ID' => 'bitrix:form.result.new',
+    'PATH' => '/vakansii/index.php',
+    'SORT' => 100,
+  ),
+  6 => 
   array (
     'CONDITION' => '#^/testovyy/#',
     'RULE' => '',
