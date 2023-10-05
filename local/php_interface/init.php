@@ -41,22 +41,42 @@ EventManager::getInstance()->addEventHandler("iblock", "OnBeforeIBlockElementUpd
 EventManager::getInstance()->addEventHandler("iblock", "OnBeforeIBlockElementDelete", function ($ID) {
     /**
      * @var CMain $APPLICATION
+     * @var CDatabase $DB
      */
     global $APPLICATION, $DB;
+    
+    $DB->StartTransaction();
+
     $data = CIBlockElement::GetByID($ID)->Fetch();
 
-    if (!$data) return;
+    if (!$data) {
+        $DB->Rollback();
+        return;
+    }
 
-    if ((int)$data["IBLOCK_ID"] !== (int)$_ENV['PRODUCT_IBLOCK_ID']) return;
+    if ((int)$data["IBLOCK_ID"] !== (int)$_ENV['PRODUCT_IBLOCK_ID']) {
+        $DB->Rollback();
+        return;
+    }
 
-    $count = (int)$data['SHOW_COUNTER'];
-    if ($count <= 1) return;
+    // $count = (int)$data['SHOW_COUNTER'];
+    // if ($count <= 1) {
+    //     $DB->Rollback();
+    //     return;
+    // }
 
-    $DB->Query("LOCK TABLES b_iblock_element_property WRITE");
-    $DB->Query("UNLOCK TABLES");
+    try {
+        $DB->Query("LOCK TABLES b_iblock_element_property WRITE");
+        $DB->Query("UNLOCK TABLES");
 
-    (new CIBlockElement())->Update($ID, ["ACTIVE" => 'N']);
-    $APPLICATION->ThrowException("Нельзя удалить запись! Запись деактивирована!");
+        (new CIBlockElement())->Update($ID, ["ACTIVE" => 'N']);
+        $APPLICATION->ThrowException("Нельзя удалить запись! Запись деактивирована!");
+
+        $DB->Commit();
+    } catch (Exception $e) {
+        $DB->Rollback();
+    }
+
     return false;
 });
 
