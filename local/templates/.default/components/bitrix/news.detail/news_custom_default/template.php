@@ -26,10 +26,12 @@ $this->setFrameMode(true);
 			/>
 	<?endif?>
 	<?if($arParams["DISPLAY_DATE"]!="N" && $arResult["DISPLAY_ACTIVE_FROM"]):?>
+        1
         <?php $this->SetViewTarget('date_news'); ?>
+        asdasdasdasdasdasdasdasdas
 		    <span class="news-date-time"><?=$arResult["DISPLAY_ACTIVE_FROM"]?></span>
         <?php $this->EndViewTarget(); ?>
-        <span class="news-date-time"><?=$arResult["DISPLAY_ACTIVE_FROM"]?></span>
+        2
 	<?endif;?>
 	<?if($arParams["DISPLAY_NAME"]!="N" && $arResult["NAME"]):?>
 		<h3><?=$arResult["NAME"]?></h3>

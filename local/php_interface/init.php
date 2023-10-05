@@ -50,7 +50,7 @@ EventManager::getInstance()->addEventHandler("iblock", "OnBeforeIBlockElementDel
     if ((int)$data["IBLOCK_ID"] !== (int)$_ENV['PRODUCT_IBLOCK_ID']) return;
 
     $count = (int)$data['SHOW_COUNTER'];
-    if ($count <= 0) return;
+    if ($count <= 1) return;
 
     $DB->Query("LOCK TABLES b_iblock_element_property WRITE");
     $DB->Query("UNLOCK TABLES");
