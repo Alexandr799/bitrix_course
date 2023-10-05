@@ -27,12 +27,11 @@ $this->setFrameMode(true);
     $count = count($arResult["ITEMS"]);
     $this->SetViewTarget('count_news');
     ?>
-    <div>
-        Количетсво черных продуктов <?php echo $arResult['PRODUCT']['black'] ?>
-    </div>
-    <div>
-        Количетсво белых продуктов <?php echo $arResult['PRODUCT']['white'] ?>
-    </div>
+    <?php foreach ($arResult['PRODUCT'] as $product) { ?>
+        <div>
+            Количетсво продуктов цвет: <?php echo $product['NAME'] ?> <?php echo $product['CNT'] ?>
+        </div>
+    <?php } ?>
     <?php
     $this->EndViewTarget();
     ?>

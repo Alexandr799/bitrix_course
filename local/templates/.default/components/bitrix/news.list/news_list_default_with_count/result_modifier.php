@@ -6,17 +6,13 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 Loader::includeModule('iBlock');
 
-$blackCount = CIBlockElement::GetList(["SORT" => "ASC"], [
+$counter = CIBlockElement::GetList(["SORT" => "ASC"], [
     'IBLOCK_ID' => 6,
-    'PROPERTY_COLOR_VALUE' => 'Черный'
-])->SelectedRowsCount();
+], ['PROPERTY_COLOR']);
 
-$whiteCount = CIBlockElement::GetList(["SORT" => "ASC"], [
-    'IBLOCK_ID' => 6,
-    'PROPERTY_COLOR_VALUE' => 'Белый'
-])->SelectedRowsCount();
+$res = [];
+while ($data = $counter->Fetch()) {
+    $res[] = ['NAME' => $data["PROPERTY_COLOR_VALUE"], 'CNT' => $data["CNT"]];
+}
 
-$arResult['PRODUCT'] = [
-    'black' => $blackCount,
-    'white' => $whiteCount
-];
+$arResult['PRODUCT'] = $res;
