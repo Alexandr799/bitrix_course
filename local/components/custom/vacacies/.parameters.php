@@ -42,7 +42,7 @@ $arComponentParameters = [
     'PARAMETERS' => [
         "VARIABLE_ALIASES" => [
             "ELEMENT_ID" => ["NAME" =>  'Идентификатор вакансии'],
-            "FORM_ID" => ["NAME" =>  'Идецификатор формы'],
+            "FORM_ID" => ["NAME" =>  'Параметр формы'],
         ],
         "CACHE_TIME"  =>  ["DEFAULT" => 36000000],
         "CACHE_FILTER" => [
