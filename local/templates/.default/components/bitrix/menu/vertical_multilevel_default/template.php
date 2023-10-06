@@ -4,6 +4,7 @@
 <ul id="vertical-multilevel-menu">
 
 <?
+
 $previousLevel = 0;
 foreach($arResult as $arItem):?>
 

@@ -8,13 +8,6 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Тестовый раздел", 
-		"/test/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
 		"Вакансии", 
 		"/vakansii/", 
 		Array(), 
@@ -73,6 +66,13 @@ $aMenuLinks = Array(
 	Array(
 		"Тест", 
 		"/testovyy/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"раздел для теста меню", 
+		"/razdel-dlya-testa-menyu/", 
 		Array(), 
 		Array(), 
 		"" 

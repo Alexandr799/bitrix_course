@@ -12,7 +12,7 @@ require_once __DIR__ . '/my_tools.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
-
+// var_dump(1);
 EventManager::getInstance()->addEventHandler("iblock", "OnBeforeIBlockElementUpdate", function (&$arFields) {
     /**
      * @var CMain $APPLICATION
@@ -44,39 +44,29 @@ EventManager::getInstance()->addEventHandler("iblock", "OnBeforeIBlockElementDel
      * @var CDatabase $DB
      */
     global $APPLICATION, $DB;
-    
-    $DB->StartTransaction();
-
+    // $DB->StartTransaction();
     $data = CIBlockElement::GetByID($ID)->Fetch();
 
     if (!$data) {
-        $DB->Rollback();
         return;
     }
 
     if ((int)$data["IBLOCK_ID"] !== (int)$_ENV['PRODUCT_IBLOCK_ID']) {
-        $DB->Rollback();
         return;
     }
-
     // $count = (int)$data['SHOW_COUNTER'];
     // if ($count <= 1) {
     //     $DB->Rollback();
     //     return;
     // }
 
-    try {
-        $DB->Query("LOCK TABLES b_iblock_element_property WRITE");
-        $DB->Query("UNLOCK TABLES");
-
-        (new CIBlockElement())->Update($ID, ["ACTIVE" => 'N']);
-        $APPLICATION->ThrowException("Нельзя удалить запись! Запись деактивирована!");
-
-        $DB->Commit();
-    } catch (Exception $e) {
-        $DB->Rollback();
-    }
-
+    // $DB->Rollback();
+    // $DB->Rollback();
+    // $DB->Commit();
+    (new CIBlockElement())->Update($ID, ["ACTIVE" => 'N']);
+    // $DB->Rollback();
+    $APPLICATION->ThrowException("Нельзя удалить запись! Запись деактивирована!");
+    // $DB->Commit();
     return false;
 });
 

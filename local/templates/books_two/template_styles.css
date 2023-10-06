@@ -73,8 +73,8 @@ hr
 {
 	display:block;
 	position:absolute;
-	width:100px; 
-	height:106px; 
+	width:100px;
+	height:106px;
 	left:165px;
 	top: 0;
 	background:url(images/logo.gif) right center no-repeat;
@@ -211,7 +211,7 @@ hr
 	-moz-box-sizing:border-box;
 	height:40px;
 	padding:8px;
-	
+
 }
 
 /*Link in footer*/
@@ -274,6 +274,10 @@ table.data-table tfoot td
 .notetext
 {
 	color:green;
+}
+
+.red {
+    color:red
 }
 
 /* Used to draw a "star" near reqired field */

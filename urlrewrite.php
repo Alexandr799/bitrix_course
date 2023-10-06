@@ -24,20 +24,20 @@ $arUrlRewrite=array (
     'PATH' => '/products/index.php',
     'SORT' => 100,
   ),
-  5 => 
-  array (
-    'CONDITION' => '#^/vakansii/#',
-    'RULE' => '',
-    'ID' => 'bitrix:form.result.new',
-    'PATH' => '/vakansii/index.php',
-    'SORT' => 100,
-  ),
   6 => 
   array (
     'CONDITION' => '#^/testovyy/#',
     'RULE' => '',
     'ID' => 'custom:vacacies',
     'PATH' => '/testovyy/index.php',
+    'SORT' => 100,
+  ),
+  7 => 
+  array (
+    'CONDITION' => '#^/vakansii/#',
+    'RULE' => '',
+    'ID' => 'bitrix:form.result.new',
+    'PATH' => '/vakansii/index.php',
     'SORT' => 100,
   ),
   1 => 

@@ -8,9 +8,9 @@ $APPLICATION->SetTitle("Отзывы");
 <div>
 	<h2>Типо карусель</h2>
 	 <?$APPLICATION->IncludeComponent(
-	"bitrix:news.list",
-	"news_list_default",
-	Array(
+	"bitrix:news.list", 
+	"news_list_default", 
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -23,7 +23,6 @@ $APPLICATION->SetTitle("Отзывы");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
-		"COMPONENT_TEMPLATE" => "news_list_default",
 		"DETAIL_URL" => "",
 		"DISPLAY_BOTTOM_PAGER" => "N",
 		"DISPLAY_DATE" => "Y",
@@ -31,7 +30,14 @@ $APPLICATION->SetTitle("Отзывы");
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array(0=>"ID",1=>"CODE",2=>"XML_ID",3=>"NAME",4=>"DETAIL_TEXT",5=>"",),
+		"FIELD_CODE" => array(
+			0 => "ID",
+			1 => "CODE",
+			2 => "XML_ID",
+			3 => "NAME",
+			4 => "DETAIL_TEXT",
+			5 => "",
+		),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "4",
@@ -50,7 +56,11 @@ $APPLICATION->SetTitle("Отзывы");
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array(0=>"DOLZHNOST",1=>"COMPANY_NAME",2=>"",),
+		"PROPERTY_CODE" => array(
+			0 => "DOLZHNOST",
+			1 => "COMPANY_NAME",
+			2 => "",
+		),
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "N",
@@ -62,8 +72,10 @@ $APPLICATION->SetTitle("Отзывы");
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC",
-		"STRICT_SECTION_CHECK" => "N"
-	)
+		"STRICT_SECTION_CHECK" => "N",
+		"COMPONENT_TEMPLATE" => "news_list_default"
+	),
+	false
 );?>
 </div>
 <div>
