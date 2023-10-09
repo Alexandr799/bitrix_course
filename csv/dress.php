@@ -5,7 +5,6 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.
 use Bitrix\Main\Context;
 use Bitrix\Main\Loader;
 
-// // если требуется аутенцификация прав
 
 /**
  * @var CUser $USER
@@ -18,12 +17,21 @@ $fileName = "export-$fileId.csv";
 Loader::includeModule("iblock");
 
 $request = Context::getCurrent()->getRequest();
+$sezonValue = $request->getQuery('sezon');
+
+if (empty($sezonValue)) {
+    $path = $request->getRequestedPageDirectory() . 'form.php?error=Поле сезона не валидно!';
+    LocalRedirect($path);
+    die();
+}
+
 $iblockId = 9;
 $arFilter = [
     "IBLOCK_ID" => $iblockId,
     'ACTIVE' => 'Y',
     "DETAIL_TEXT" => false,
-    '!SECTION_ID' => false
+    '!SECTION_ID' => false,
+    'PROPERTY_SEZON_RUS' => $sezonValue
 ];
 $arSelect = [
     "ID",
