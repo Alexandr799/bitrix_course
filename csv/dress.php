@@ -1,47 +1,35 @@
 <?php
-
+define("NEED_AUTH", true);
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.php");
 
 use Bitrix\Main\Context;
 use Bitrix\Main\Loader;
 
-// // если требуется аутенцификация
+// // если требуется аутенцификация прав
 
-// /**
-//  * @var CUser $USER
-//  */
-// global $USER;
-// $permissionsGroups = [1, 2, 3, 4];
+/**
+ * @var CUser $USER
+ */
+global $USER;
 
-// $groups = explode(',', $USER->GetGroups());
-// $auth = false;
-
-// foreach ($permissionsGroups as $id) {
-//     if (in_[$id, $groups)) {
-//         $auth = true;
-//         break;
-//     }
-// }
-
-// if (!$auth) {
-//     http_response_code(403);
-//     header('content-type: application/json');
-//     echo json_encode(['answer' => 'permission denied']);
-//     return;
-// }
-
-$fileRandomId = rand(1, 999999999);
-$fileName = "export-$fileRandomId.csv";
+$fileId = $USER->GetID();
+$fileName = "export-$fileId.csv";
 
 Loader::includeModule("iblock");
 
 $request = Context::getCurrent()->getRequest();
 $iblockId = 9;
-$arFilter = ["IBLOCK_ID" => $iblockId];
+$arFilter = [
+    "IBLOCK_ID" => $iblockId,
+    'ACTIVE' => 'Y',
+    "DETAIL_TEXT" => false,
+    '!SECTION_ID' => false
+];
 $arSelect = [
     "ID",
     "NAME",
     "PREVIEW_TEXT",
+    "DETAIL_TEXT",
     "PREVIEW_PICTURE",
     "PROPERTY_ARTICLE",
     'PROPERTY_TSVET',
@@ -53,7 +41,9 @@ $page = 1;
 
 
 $csvFile = fopen(__DIR__  . "/$fileName", "w");
-$headers = ["Картинка для анонса", "Код", "Описание анонсы",  "Название", "Цвет", "Сезон"];
+// BOM кодировка
+fwrite($csvFile, "\xEF\xBB\xBF");
+$headers = ["Картинка для анонса", "Код", "Описание анонсы",  "Название", "Цвет", "Сезон", "Детальное описание"];
 
 fputcsv($csvFile, $headers, ";");
 do {
@@ -80,6 +70,7 @@ do {
             $item['NAME'],
             $item['PROPERTY_TSVET_VALUE'],
             $item['PROPERTY_SEZON_RUS_VALUE'],
+            $item["DETAIL_TEXT"],
         ];
         fputcsv($csvFile, $data, ";");
     }
