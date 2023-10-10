@@ -1,0 +1,56 @@
+array (
+  'date' => '10.10.2023 11:28:37',
+  'request' => 
+  array (
+    'XML_ID' => 2,
+    'ACTION_1C_CREATE' => '2023-10-10',
+  ),
+)
+array (
+  'date' => '10.10.2023 11:30:11',
+  'request' => 
+  array (
+    'XML_ID' => 2,
+    'ACTION_1C_CREATE' => '2023-10-10',
+  ),
+)
+array (
+  'date' => '10.10.2023 11:31:08',
+  'request' => 
+  array (
+    'XML_ID' => 2,
+    'ACTION_1C_CREATE' => '2023-10-10',
+  ),
+)
+array (
+  'date' => '10.10.2023 11:36:22',
+  'request' => NULL,
+)
+array (
+  'date' => '10.10.2023 11:36:48',
+  'request' => NULL,
+)
+array (
+  'date' => '10.10.2023 11:36:50',
+  'request' => NULL,
+)
+array (
+  'date' => '10.10.2023 11:39:14',
+  'request' => NULL,
+)
+array (
+  'date' => '10.10.2023 11:39:35',
+  'request' => NULL,
+)
+array (
+  'date' => '10.10.2023 11:39:52',
+  'request' => NULL,
+)
+array (
+  'date' => '10.10.2023 11:40:04',
+  'request' => NULL,
+)
+array (
+  'date' => '10.10.2023 11:54:33',
+  'request' => NULL,
+)

@@ -1,0 +1,19 @@
+.filter-block{
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #eee;
+}
+.ajaxResult .table thead th:not(:first-child){text-align: center;white-space: nowrap;font-size: 14px;padding-left: 10px;padding-right: 10px;vertical-align: middle;}
+.ajaxResult .table tbody td:not(:first-child){text-align: center}
+
+.fixtable-fixed {
+	position: fixed;
+	top: 0;
+	z-index: 101;
+	background-color: #FCF8E4;
+	border-bottom: 1px solid #ddd;
+}
+
+.bg-success{
+	 background-color: #dff0d8 !important;
+}
