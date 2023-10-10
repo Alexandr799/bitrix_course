@@ -110,9 +110,10 @@ if (!empty($sezonValue) && is_string($sezonValue)) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Форма для выгрузки данных</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     </head>
 
-    <body style="font-family:sans-serif">
+    <body>
         <h1 style="text-align:center;padding-top:40px;">Форма для выгрузки данных</h1>
         <div style="display:flex;justify-content:center;align-items:center">
             <form action="<?php echo $path ?>">
@@ -127,7 +128,7 @@ if (!empty($sezonValue) && is_string($sezonValue)) {
                         <?php } ?>
                     </select>
                 </div>
-                <button style="width:100%">Скачать</button>
+                <button class="btn btn-primary" style="width:100%">Скачать</button>
             </form>
         </div>
     </body>
