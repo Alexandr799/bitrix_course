@@ -49,7 +49,7 @@ function writeLog(string $text, string $pathTologFile)
  *  @param string $colName
  *  @return string
  */
-function makeColumnWithNullCount(array $fields, $colName = 'NULL_COUNT')
+function makeColumnWithNullCount(array $fields, $colName = 'NULL_COUNT'): string
 {
     $agg = 'ROUND(((';
     $count = count($fields);
@@ -91,7 +91,7 @@ function responseCsvDownLoad(string $path, int $code = 200, string $clientFileNa
  * @param null|callable $filterFun HTTP-код ответа (по умолчанию 200).
  * @return string
  */
-function makeWhereRow(array $params, mixed $filterFunc = null)
+function makeWhereRow(array $params, mixed $filterFunc = null): string
 {
     if (is_null($filterFunc)) {
         $filterFunc = function ($value) {
@@ -121,4 +121,36 @@ function makeWhereRow(array $params, mixed $filterFunc = null)
     }
 
     return  $where === 'WHERE' ? '' : $where;
+}
+
+
+/**
+ * Строит URL с добавленными или измененными параметрами запроса.
+ *
+ * @param array $query Массив с текущими параметрами запроса.
+ * @param string $referer Хост (например, "http://example.com").
+ * @param string $key Ключ параметра запроса для добавления или изменения.
+ * @param string $value Значение параметра запроса.
+ *
+ * @return string Возвращает URL с обновленными параметрами запроса.
+ */
+function makeLinkWithQuery(array $query, string $referer,  string $key, string $value): string
+{
+    $referer = explode('?', $referer)[0];
+    $query[$key] = $value;
+    $getparams = http_build_query($query);
+
+    return $referer . '?' . $getparams;
+}
+
+/**
+ *
+ * @param string $date Дата для проверки.
+ * @param string $format Формат даты (по умолчанию 'Y-m-d').
+ * @return bool Возвращает true, если дата действительна в указанном формате, иначе false.
+ */
+function validateDate($date, $format = 'Y-m-d'): bool
+{
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) == $date;
 }

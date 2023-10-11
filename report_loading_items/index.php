@@ -92,7 +92,7 @@ $sezons = array_column($sezons, 'SEZON');
                         <select name="filter[sezon]" id="inlineFormInputSezon" class="form-control">
                             <option value="">Выберите значение</option>
                             <?php foreach ($sezons  as $sezon) : ?>
-                                <option value="<?php echo  $sezon ?>" <?php echo ($_GET["filter"]['sezon'] == $sezon ? 'selected=""' : '') ?>>
+                                <option value="<?php echo  $sezon ?>" <?php echo ((isset($_GET["filter"]['action']) && $_GET["filter"]['sezon'] == $sezon) ? 'selected=""' : '') ?>>
                                     <?php echo $sezon ?>
                                 </option>
                             <?php endforeach; ?>
@@ -140,9 +140,11 @@ $sezons = array_column($sezons, 'SEZON');
                     <p class='float-left'>Найдено: <?php echo count($arResult) ?></p>
                     <?php
                     if (count($arResult) > 0)
-                        echo "<a class='btn btn-success float-right' href='http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]&EXPORT'>Скачать</a>";
+                        $link = makeLinkWithQuery($_GET, "$_SERVER[HTTP_REFERER]", 'EXPORT', '');
+                    echo "<a class='btn btn-success float-right' href='$link'>Скачать</a>";
                     ?>
                 </div>
+                <p class='float-left'>Показаны записи с: <?php echo $offset + 1 ?> по <?php echo $offset + $limit ?></p>
                 <?php if (count($arResult) > 0) : ?>
                     <table class="table table-sm table-hover table-bordered fixtable small">
                         <thead>
@@ -161,7 +163,7 @@ $sezons = array_column($sezons, 'SEZON');
                             <?php foreach ($arResult as $arItem) : ?>
                                 <tr>
                                     <?php foreach ($arItem as $arCol) : ?>
-                                        <td class="<?php echo strtotime($arCol) ? 'font-weight-bold' : '' ?> <?php echo isset($arCol) ? 'bg-success' : '' ?> ">
+                                        <td class="<?php echo validateDate($arCol) ? 'font-weight-bold' : '' ?> <?php echo isset($arCol) ? 'bg-success' : '' ?> ">
                                             <?php
                                             echo $arCol;
                                             ?>
@@ -172,17 +174,46 @@ $sezons = array_column($sezons, 'SEZON');
                         </tbody>
                     </table>
                 <?php endif; ?>
-                <?php if ($total_pages > 2) { ?>
-                    <ul class="pagination">
-                        <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                            <li class='page-item'>
-                                <a class='page-link' href='?page=<?php echo $i ?>'>
-                                    <?php echo $i ?>
-                                </a>
-                            </li>
-                        <?php } ?>
-                    </ul>
-                <?php } ?>
+                <div class="d-flex justify-content-center">
+                    <?php if ($total_pages > 1) { ?>
+                        <ul class="pagination">
+                            <?php
+                            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                            $pages_to_show = 5; // Количество отображаемых страниц в пагинации
+                            $half = floor($pages_to_show / 2);
+
+                            $start_page = max(1, $current_page - $half);
+                            $end_page = min($total_pages, $start_page + $pages_to_show - 1);
+
+                            if ($start_page > 1) {
+                                $link = makeLinkWithQuery($_GET, "$_SERVER[HTTP_REFERER]", 'page', ($start_page - 1));
+                            ?>
+                                <li class='page-item'>
+                                    <a class="page-link" href="<?php echo $link ?>">Предыдущая</a>";
+                                </li>
+                            <?php }
+
+                            for ($i = $start_page; $i <= $end_page; $i++) {
+                                $class = ($i == $current_page) ? 'active' : '';
+                                $link = makeLinkWithQuery($_GET, "$_SERVER[HTTP_REFERER]", 'page', $i);
+                            ?>
+                                <li class='page-item  <?php echo $class ?>'>
+                                    <a class="page-link" href="<?php echo $link ?>">
+                                        <?php echo $i ?>
+                                    </a>
+                                </li>
+                            <?php   }
+
+                            if ($end_page < $total_pages) {
+                                $link = makeLinkWithQuery($_GET, "$_SERVER[HTTP_REFERER]", 'page', ($end_page + 1));
+                            ?>
+                                <li class='page-item'>
+                                    <a class="page-link" href="<?php echo $link ?>">Следующая</a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    <?php } ?>
+                </div>
             <?php endif; ?>
         </div>
     </div>
